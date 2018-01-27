@@ -9,6 +9,8 @@ namespace Assets.Scripts.Characters.Player
 {
     public class Player : Character
     {
+        public bool isAlive = true;
+
         void Start()
         {
             GameManager.Instance.Player = this;

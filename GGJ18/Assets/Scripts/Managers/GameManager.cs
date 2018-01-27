@@ -4,6 +4,7 @@ using UnityEngine;
 
 using Assets.Scripts.Characters.Player;
 using Assets.Scripts.Characters.NPC;
+using UnityStandardAssets.Characters.FirstPerson;
 
 namespace Assets.Scripts.Managers
 {
@@ -12,6 +13,8 @@ namespace Assets.Scripts.Managers
         public static GameManager Instance;
 
         public Player Player { get; set; }
+
+        public RectTransform gameOverPrefab;
 
         protected List<Monster> monsters = new List<Monster>();
 
@@ -33,6 +36,21 @@ namespace Assets.Scripts.Managers
                 {
                     monster.WalkToPosition(position);
                 }
+            }
+        }
+
+        public void KillPlayer()
+        {
+            if (Player.isAlive)
+            {
+                Player.isAlive = false;
+
+                var fps = Player.GetComponent<FirstPersonController>();
+
+                fps.SetMouseLockActive(false);
+                Destroy(fps);
+
+                GameObject.Instantiate(gameOverPrefab);
             }
         }
     }
