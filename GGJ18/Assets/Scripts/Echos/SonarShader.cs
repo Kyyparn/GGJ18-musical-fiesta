@@ -80,9 +80,9 @@ public class SonarShader : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision collision)
     {
-        StartSonarRing(transform.position, 50);
         // Start sonar ring from the contact point
+        StartSonarRing(collision.contacts[0].point, collision.impulse.magnitude * 2);
     }
 }

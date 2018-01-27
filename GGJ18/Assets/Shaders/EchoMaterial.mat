@@ -40,7 +40,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: 0c43c347a7149814f831233c98bea785, type: 3}
-        m_Scale: {x: 10, y: 10}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -57,7 +57,7 @@ Material:
     - _RingTex:
         m_Texture: {fileID: 2800000, guid: ce452d0d3775c724eb480407d2564e6a, type: 3}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 1, y: 1}
     m_Floats:
     - _BumpScale: 1
     - _Cutoff: 0.5
@@ -84,4 +84,4 @@ Material:
     - _Center: {r: 19.96, g: 0, b: 0, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RingColor: {r: 0.40846384, g: 0.6320754, b: 0.42926493, a: 1}
+    - _RingColor: {r: 0.5943396, g: 0, b: 0.023511697, a: 1}
