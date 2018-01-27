@@ -9,7 +9,7 @@ namespace Assets.Scripts.Characters.Player
 {
     public class Player : Character
     {
-        void Awake()
+        void Start()
         {
             GameManager.Instance.Player = this;
         }

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 54209720064493412}
   - component: {fileID: 82630099757469718}
   - component: {fileID: 114699154416684068}
+  - component: {fileID: 114880756415876108}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -513,6 +514,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scream: {fileID: 114658920913292824}
+--- !u!114 &114880756415876108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456249005628032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e63bfab2d1e61044a5facb765fa5f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &124689288403193764
 Behaviour:
   m_ObjectHideFlags: 1
