@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Managers;
+﻿using Assets.Scripts.Echoes;
+using Assets.Scripts.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,10 @@ namespace Assets.Scripts.Characters.NPC
 
         private IEnumerator coroutine;
 
+        private EcoLocationAudioSource echoSound;
+
+        public SoundContainer MonsterAmbientSounds;
+
         // Use this for initialization
         void Start()
         {
@@ -29,7 +34,7 @@ namespace Assets.Scripts.Characters.NPC
             currentTarget = GetClosestWaypoint();
             var nextPath = (checkpointList[currentTarget].GetComponent("Waypoint") as Waypoint).GetNextPath(checkpointList[previousTarget].transform);
             agent.SetDestination(nextPath.transform.position);
-
+            echoSound = gameObject.GetComponent<EcoLocationAudioSource>();
             GameManager.Instance.RegisterMonster(this);
         }
 
