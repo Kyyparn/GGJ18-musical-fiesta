@@ -16,8 +16,7 @@ namespace Assets.Scripts.SceneLoad
 
             if(player)
             {
-                print("Collided");
-                SceneLoadManager.Instance.LoadScene(sceneName);
+                SceneLoadManager.Instance.LoadSceneWithRelativePlayerSpawnPosition(sceneName);
             }
         }
     }
