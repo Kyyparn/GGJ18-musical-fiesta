@@ -37,7 +37,7 @@ namespace Assets.Scripts.Managers
             this.endPoint = endPoint;
         }
 
-        public void LoadScene(string sceneName)
+        public void LoadSceneWithRelativePlayerSpawnPosition(string sceneName)
         {
             if (endPoint)
             {
@@ -49,6 +49,21 @@ namespace Assets.Scripts.Managers
             }
 
             SceneManager.LoadScene(sceneName);
+        }
+
+        public void LoadScene(string sceneName)
+        {
+            relativeData.position = new Vector3();
+            relativeData.playerRotation = Vector3.forward;
+            relativeData.cameraRotation = Quaternion.identity;
+
+            SceneManager.LoadScene(sceneName);
+        }
+
+        public void ReloadScene()
+        {
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
         }
 
         void SpawnPlayer()
