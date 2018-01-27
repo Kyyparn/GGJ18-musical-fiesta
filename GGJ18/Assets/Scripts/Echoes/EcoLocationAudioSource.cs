@@ -14,6 +14,10 @@ namespace Assets.Scripts.Echoes
         [ContextMenu("Play Sound")]
         public void PlaySound()
         {
+            foreach (var meshSpawner in EchoMeshSpawner.MeshSpawners)
+            {
+                meshSpawner.CreateCopyOfMesh();
+            }
             GetComponent<AudioSource>().Play();
             GetComponent<SonarShader>().StartSonarRing(transform.position, intensity);
         }
