@@ -1604,7 +1604,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd642c47101bc7f43aaa2521da873853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 10
+  intensity: 20
+  intensityFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   isAmbientSound: 1
 --- !u!114 &676066737
 MonoBehaviour:
@@ -2439,6 +2463,7 @@ GameObject:
   - component: {fileID: 864817603}
   - component: {fileID: 864817602}
   - component: {fileID: 864817601}
+  - component: {fileID: 864817605}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -2509,6 +2534,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -7.7750006, y: -32.707, z: 0}
+--- !u!114 &864817605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864817600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e63bfab2d1e61044a5facb765fa5f06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &893352872
 GameObject:
   m_ObjectHideFlags: 0
