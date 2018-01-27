@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 136156766346768062}
   - component: {fileID: 195618052802544850}
   - component: {fileID: 114055166420072034}
+  - component: {fileID: 114156534052855904}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 6fd099d339b4ae34692c8258e4f87531, type: 2}
+  - {fileID: 2100000, guid: 2214d07eb0292b44a8fd410c3274c8f0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -97,6 +98,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5272b6d0b9994c448e2f0c52ec420b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114156534052855904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827744351269136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbcbc151a4cba34790ecadee92153cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshSpawnerPrefab: {fileID: 1773562866122700, guid: 7ceabd7b24a63ed46ba743070c35d691,
+    type: 2}
 --- !u!136 &136156766346768062
 CapsuleCollider:
   m_ObjectHideFlags: 1
