@@ -66,5 +66,10 @@ namespace Assets.Scripts.Characters.NPC
             }
             return 0;
         }
+
+        public void WalkToPosition(Vector3 pos)
+        {
+            agent.SetDestination(pos);
+        }
     }
 }
