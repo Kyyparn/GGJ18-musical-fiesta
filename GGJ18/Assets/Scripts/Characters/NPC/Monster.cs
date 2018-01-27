@@ -167,25 +167,29 @@ namespace Assets.Scripts.Characters.NPC
         void CheckIfNearPlayer()
         {
             var player = GameManager.Instance.Player;
-            var aggroDistance = 5.0f;
-            var distance = (transform.position - player.transform.position).magnitude;
-            if (distance <= aggroDistance)
+
+            if (player && player.isAlive)
             {
-                if(distance < 0.5f)
+                var aggroDistance = 5.0f;
+                var distance = (transform.position - player.transform.position).magnitude;
+                if (distance <= aggroDistance)
                 {
-                    return;
+                    if (distance < 0.5f)
+                    {
+                        GameManager.Instance.KillPlayer();
+                    }
+                    if (!chasingPlayer)
+                    {
+                        StartChasingPlayer();
+                    }
+                    WalkToPosition(player.transform.position);
                 }
-                if(!chasingPlayer)
+                else if (distance > aggroDistance)
                 {
-                    StartChasingPlayer();
-                }
-                WalkToPosition(player.transform.position);
-            }
-            else if(distance > aggroDistance)
-            {
-                if(chasingPlayer)
-                {
-                    StopChasingPlayer();
+                    if (chasingPlayer)
+                    {
+                        StopChasingPlayer();
+                    }
                 }
             }
         }
