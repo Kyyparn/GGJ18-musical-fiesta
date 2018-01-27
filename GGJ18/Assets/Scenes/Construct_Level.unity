@@ -1659,12 +1659,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: 11c99ec7f93bf734daba492d6fe4976d, type: 3}
   - {fileID: 8300000, guid: 46a36bbfcfbe58c438285c34d9f65fee, type: 3}
   - {fileID: 8300000, guid: 7757bd5d74aad3b4a9aa92d3ea8763bf, type: 3}
   - {fileID: 8300000, guid: 5194dcc57666b1b4a9b3f2b68ffc314a, type: 3}
-  timeBetweenSounds: 0
-  maxRandomExtraDelay: 0
+  timeBetweenSounds: 3
+  maxRandomExtraDelay: 3
 --- !u!114 &676066736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1791,7 +1790,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 676066734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4101562, y: 0.385, z: -1.4296875}
+  m_LocalPosition: {x: 0.6, y: 0.385, z: -1.4296875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
