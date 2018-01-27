@@ -16,7 +16,7 @@ namespace Assets.Scripts.Characters.Player
             if(Input.GetButtonDown("Fire1"))
             {
                 var audio = screamSounds[Random.Range(0, screamSounds.Count)];
-                scream.PlaySound(audio);
+                scream.PlaySound(audio, transform.position);
             }
         }
     }
