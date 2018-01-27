@@ -125,13 +125,11 @@ namespace Assets.Scripts.Characters.NPC
         {
             chasingPlayer = true;
             PlaySoundWithRing(MonsterChaseSounds);
-            Debug.Log("Start chasing");
             InvokeRepeating("UpdateChase", 0.1f, 1.0f);
         }
 
         public void UpdateChase()
         {
-            Debug.Log("ShowRing");
             echoSound.PlaySonarRing(10.0f);
         }
 
@@ -139,7 +137,6 @@ namespace Assets.Scripts.Characters.NPC
         {
             if(IsInvoking("UpdateChase"))
             {
-                Debug.Log("Stop chasing");
                 CancelInvoke("UpdateChase");
             }
             chasingPlayer = false;
@@ -172,7 +169,6 @@ namespace Assets.Scripts.Characters.NPC
             {
                 if(distance < 0.5f)
                 {
-                    //Debug.Log("DED");
                     return;
                 }
                 if(!chasingPlayer)
