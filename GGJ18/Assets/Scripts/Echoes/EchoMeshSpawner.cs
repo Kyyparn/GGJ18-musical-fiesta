@@ -3,7 +3,19 @@ using UnityEngine;
 
 public class EchoMeshSpawner : MonoBehaviour {
 
-    public static List<EchoMeshSpawner> MeshSpawners;
+    private static List<EchoMeshSpawner> meshSpawners;
+    public static List<EchoMeshSpawner> MeshSpawners
+    {
+        get
+        {
+            if (meshSpawners == null)
+            {
+                meshSpawners = new List<EchoMeshSpawner>();
+            }
+            return meshSpawners;
+        }
+        set { }
+    }
     public GameObject meshSpawnerPrefab;
     private Mesh mesh;
     
@@ -16,10 +28,18 @@ public class EchoMeshSpawner : MonoBehaviour {
         MeshSpawners.Add(this);
     }
 
-    public void CreateCopyOfMesh()
+    private void OnDestroy()
     {
-        var gameObject = Instantiate(meshSpawnerPrefab, transform.position, transform.rotation) as GameObject;
-        gameObject.transform.localScale = transform.localScale;
-        gameObject.GetComponent<MeshFilter>().mesh = mesh;
+        MeshSpawners.Remove(this);
+    }
+
+    public void CreateCopyOfMesh(Vector3 aroundPoint, float radius)
+    {
+        if(Vector3.Distance(transform.position, aroundPoint) <= radius)
+        {
+            var gameObject = Instantiate(meshSpawnerPrefab, transform.position, transform.rotation) as GameObject;
+            gameObject.transform.localScale = transform.localScale;
+            gameObject.GetComponent<MeshFilter>().mesh = mesh;
+        }
     }
 }

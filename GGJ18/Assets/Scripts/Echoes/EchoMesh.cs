@@ -20,7 +20,6 @@ public class EchoMesh : MonoBehaviour {
         if (lifetime > startToFadeTime)
         {
             var newAlpha = meshRenderer.material.color.a - (Time.deltaTime / (duration - startToFadeTime));
-            //var newAlpha = meshRenderer.material.color.a - ((duration - startToFadeTime) - (duration - startToFadeTime)));
             if (newAlpha < 0)
             {
                 Destroy(gameObject);

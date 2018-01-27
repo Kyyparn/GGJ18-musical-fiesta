@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Managers;
+using UnityEditor.Experimental.UIElements;
 using UnityEngine;
 
 namespace Assets.Scripts.Echoes
@@ -8,24 +9,28 @@ namespace Assets.Scripts.Echoes
     public class EcoLocationAudioSource : MonoBehaviour
     {
         public float intensity = 100f;
+        public AnimationCurve intensityFalloff;
 
         public bool isAmbientSound = false;
 
         [ContextMenu("Play Sound")]
-        public void PlaySound(AudioClip audio)
+        public void PlaySound(AudioClip audio, Vector3 sourcePosition)
         {
+            var distanceToPlayer = Vector3.Distance(GameManager.Instance.Player.transform.position, sourcePosition);
+            var intensityWithFalloff = intensityFalloff.Evaluate((intensity - (distanceToPlayer * 2)) / intensity) * intensity;
+
             foreach (var meshSpawner in EchoMeshSpawner.MeshSpawners)
             {
-                meshSpawner.CreateCopyOfMesh();
+                meshSpawner.CreateCopyOfMesh(sourcePosition, intensityWithFalloff * 0.1f);
             }
             var audioSource = GetComponent<AudioSource>();
             audioSource.clip = audio;
             audioSource.Play();
-            GetComponent<SonarShader>().StartSonarRing(transform.position, intensity);
+            GetComponent<SonarShader>().StartSonarRing(transform.position, intensityWithFalloff);
 
             if (!isAmbientSound)
             {
-                GameManager.Instance.SoundWasPlayed(transform.position, intensity);
+                GameManager.Instance.SoundWasPlayed(transform.position, intensityWithFalloff);
             }
         }
 

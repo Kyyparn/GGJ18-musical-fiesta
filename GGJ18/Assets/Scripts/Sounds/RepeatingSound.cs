@@ -23,7 +23,7 @@ public class RepeatingSound : MonoBehaviour
         if(timeUntilNextSound < 0)
         {
             var audio = sounds[Random.Range(0, sounds.Count)];
-            echoAudioSource.PlaySound(audio);
+            echoAudioSource.PlaySound(audio, transform.position);
             UpdateTimeUntilNextSound();
         }
     }

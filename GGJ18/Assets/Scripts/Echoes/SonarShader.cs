@@ -1,5 +1,6 @@
 ﻿// SimpleSonarShader scripts and shaders were written by Drew Okenfuss.
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Assets.Scripts.Echoes
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Echoes
     {
 
         // All the renderers that will have the sonar data sent to their shaders.
-        private Renderer[] ObjectRenderers;
+        private List<Renderer> ObjectRenderers;
 
         // Throwaway values to set position to at the start.
         private static readonly Vector4 GarbagePosition = new Vector4(-5000, -5000, -5000, -5000);
@@ -36,7 +37,7 @@ namespace Assets.Scripts.Echoes
         private void Start()
         {
             // Get renderers that will have effect applied to them
-            ObjectRenderers = GetComponentsInChildren<Renderer>();
+            ObjectRenderers = GetComponentsInChildren<Renderer>().ToList();
 
             if (NeedToInitQueues)
             {
@@ -60,7 +61,7 @@ namespace Assets.Scripts.Echoes
         public void StartSonarRing(Vector4 position, float intensity)
         {
             // Put values into the queue
-            position.w = Time.time;
+            position.w = Time.timeSinceLevelLoad;
             positionsQueue.Dequeue();
             positionsQueue.Enqueue(position);
 
@@ -75,13 +76,10 @@ namespace Assets.Scripts.Echoes
         /// </summary>
         private void SendSonarData()
         {
+            ObjectRenderers.RemoveAll(x => x == null);
             // Send updated queues to the shaders
             foreach (Renderer r in ObjectRenderers)
             {
-                if(r == null)
-                {
-                    continue;
-                }
                 r.material.SetVectorArray("_hitPts", positionsQueue.ToArray());
                 r.material.SetFloatArray("_Intensity", intensityQueue.ToArray());
             }
