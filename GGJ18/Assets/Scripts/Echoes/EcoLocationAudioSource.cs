@@ -1,7 +1,4 @@
 ﻿using Assets.Scripts.Managers;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Echoes
@@ -15,13 +12,15 @@ namespace Assets.Scripts.Echoes
         public bool isAmbientSound = false;
 
         [ContextMenu("Play Sound")]
-        public void PlaySound()
+        public void PlaySound(AudioClip audio)
         {
             foreach (var meshSpawner in EchoMeshSpawner.MeshSpawners)
             {
                 meshSpawner.CreateCopyOfMesh();
             }
-            GetComponent<AudioSource>().Play();
+            var audioSource = GetComponent<AudioSource>();
+            audioSource.clip = audio;
+            audioSource.Play();
             GetComponent<SonarShader>().StartSonarRing(transform.position, intensity);
 
             if (!isAmbientSound)
