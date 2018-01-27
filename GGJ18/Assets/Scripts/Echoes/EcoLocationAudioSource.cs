@@ -7,7 +7,7 @@ namespace Assets.Scripts.Echoes
     [RequireComponent(typeof(SonarShader))]
     public class EcoLocationAudioSource : MonoBehaviour
     {
-        float intensity = 100f;
+        public float intensity = 100f;
 
         public bool isAmbientSound = false;
 
