@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114871613288656386}
   - component: {fileID: 82142049907596584}
   - component: {fileID: 114270904799006870}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1827744351269136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.68, y: 0.489, z: -5.2}
+  m_LocalPosition: {x: -6.8534026, y: 0.532, z: 7.3060684}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -145,7 +145,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -196,7 +196,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5272b6d0b9994c448e2f0c52ec420b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterSoundContainer: {fileID: 11400000, guid: 3e6d3830c02e8ff4cb69dd6c83c3a7db,
+  MonsterAmbientSoundContainer: {fileID: 11400000, guid: 3e6d3830c02e8ff4cb69dd6c83c3a7db,
+    type: 2}
+  MonsterChaseSoundContainer: {fileID: 11400000, guid: 499ed47972fb73b44bda9b47b17e6854,
     type: 2}
 --- !u!114 &114156534052855904
 MonoBehaviour:
@@ -233,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd642c47101bc7f43aaa2521da873853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 100
+  intensity: 5
   isAmbientSound: 1
 --- !u!136 &136156766346768062
 CapsuleCollider:
