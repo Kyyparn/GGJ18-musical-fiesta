@@ -1676,7 +1676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd642c47101bc7f43aaa2521da873853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensity: 10
+  intensity: 30
   intensityFalloff:
     serializedVersion: 2
     m_Curve:
