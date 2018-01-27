@@ -51,6 +51,7 @@ namespace Assets.Scripts.Echoes
 
             // Add this objects function to the static delegate
             RingDelegate += SendSonarData;
+            SendSonarData();
         }
 
         /// <summary>
@@ -77,6 +78,10 @@ namespace Assets.Scripts.Echoes
             // Send updated queues to the shaders
             foreach (Renderer r in ObjectRenderers)
             {
+                if(r == null)
+                {
+                    continue;
+                }
                 r.material.SetVectorArray("_hitPts", positionsQueue.ToArray());
                 r.material.SetFloatArray("_Intensity", intensityQueue.ToArray());
             }
