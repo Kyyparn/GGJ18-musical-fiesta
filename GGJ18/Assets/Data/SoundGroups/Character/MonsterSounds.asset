@@ -11,4 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 856b488030464934a8924ed4c86a053a, type: 3}
   m_Name: MonsterSounds
   m_EditorClassIdentifier: 
-  ListOfSounds: []
+  ListOfSounds:
+  - {fileID: 8300000, guid: 867c16b4635b3a04399d9202170d556e, type: 3}
+  - {fileID: 8300000, guid: 8fd85c8f0ee01aa40980a1ff553fcb2e, type: 3}
+  - {fileID: 8300000, guid: 18186cad2f597f944a83874cc3df7103, type: 3}
+  - {fileID: 8300000, guid: 8a726c517ed281c4f94efd5672e3fe63, type: 3}
+  - {fileID: 8300000, guid: 4b611e6a7c4acbc4cb899965f03f6fc3, type: 3}

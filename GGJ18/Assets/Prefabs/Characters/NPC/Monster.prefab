@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5272b6d0b9994c448e2f0c52ec420b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MonsterAmbientSounds: {fileID: 11400000, guid: 3e6d3830c02e8ff4cb69dd6c83c3a7db,
+  MonsterSoundContainer: {fileID: 11400000, guid: 3e6d3830c02e8ff4cb69dd6c83c3a7db,
     type: 2}
 --- !u!114 &114156534052855904
 MonoBehaviour:
@@ -233,6 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd642c47101bc7f43aaa2521da873853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intensity: 100
   isAmbientSound: 1
 --- !u!136 &136156766346768062
 CapsuleCollider:

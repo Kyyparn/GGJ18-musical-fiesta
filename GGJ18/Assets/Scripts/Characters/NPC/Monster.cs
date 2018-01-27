@@ -23,8 +23,9 @@ namespace Assets.Scripts.Characters.NPC
 
         private EcoLocationAudioSource echoSound;
 
-        public SoundContainer MonsterAmbientSounds;
+        public SoundContainer MonsterSoundContainer;
 
+        private List<AudioClip> MonsterAmbientSounds = new List<AudioClip>();
         // Use this for initialization
         void Start()
         {
@@ -36,6 +37,7 @@ namespace Assets.Scripts.Characters.NPC
             agent.SetDestination(nextPath.transform.position);
             echoSound = gameObject.GetComponent<EcoLocationAudioSource>();
             GameManager.Instance.RegisterMonster(this);
+            MonsterAmbientSounds = MonsterSoundContainer.ListOfSounds;
         }
 
         // Update is called once per frame
