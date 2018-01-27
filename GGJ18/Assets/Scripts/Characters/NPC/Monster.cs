@@ -30,11 +30,12 @@ namespace Assets.Scripts.Characters.NPC
 
         private List<AudioClip> MonsterAmbientSounds = new List<AudioClip>();
         private List<AudioClip> MonsterChaseSounds = new List<AudioClip>();
-        
+
         private AudioSource audioSource;
         // Use this for initialization
         void Start()
         {
+            GetComponent<MonsterEchoMeshSpawner>().MonsterState = MonsterState.Patrol;
             agent = GetComponent<NavMeshAgent>();
             checkpointList = GameObject.FindGameObjectsWithTag("Waypoint");
             previousTarget = 0;
@@ -123,6 +124,7 @@ namespace Assets.Scripts.Characters.NPC
 
         public void StartChasingPlayer()
         {
+            GetComponent<MonsterEchoMeshSpawner>().MonsterState = MonsterState.Chase;
             chasingPlayer = true;
             PlaySoundWithRing(MonsterChaseSounds);
             InvokeRepeating("UpdateChase", 0.1f, 1.0f);
@@ -135,7 +137,8 @@ namespace Assets.Scripts.Characters.NPC
 
         public void StopChasingPlayer()
         {
-            if(IsInvoking("UpdateChase"))
+            GetComponent<MonsterEchoMeshSpawner>().MonsterState = MonsterState.Patrol;
+            if (IsInvoking("UpdateChase"))
             {
                 CancelInvoke("UpdateChase");
             }
@@ -151,6 +154,7 @@ namespace Assets.Scripts.Characters.NPC
         {
             var audio = soundList[Random.Range(0, soundList.Count)];
             audioSource.clip = audio;
+            Debug.Log("Play audio: " + audio.name);
             audioSource.Play();
         }
 

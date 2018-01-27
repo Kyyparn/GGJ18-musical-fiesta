@@ -17,10 +17,10 @@ public class EchoMeshSpawner : MonoBehaviour {
         set { }
     }
     public GameObject meshSpawnerPrefab;
-    private Mesh mesh;
+    protected MeshFilter meshFilter;
     
 	void Start () {
-        mesh = GetComponent<MeshFilter>().mesh;
+        meshFilter = GetComponent<MeshFilter>();
         if(MeshSpawners == null)
         {
             MeshSpawners = new List<EchoMeshSpawner>();
@@ -33,13 +33,13 @@ public class EchoMeshSpawner : MonoBehaviour {
         MeshSpawners.Remove(this);
     }
 
-    public void CreateCopyOfMesh(Vector3 aroundPoint, float radius)
+    public virtual void CreateCopyOfMesh(Vector3 aroundPoint, float radius)
     {
         if(Vector3.Distance(transform.position, aroundPoint) <= radius)
         {
             var gameObject = Instantiate(meshSpawnerPrefab, transform.position, transform.rotation) as GameObject;
             gameObject.transform.localScale = transform.localScale;
-            gameObject.GetComponent<MeshFilter>().mesh = mesh;
+            gameObject.GetComponent<MeshFilter>().mesh = meshFilter.mesh;
         }
     }
 }
