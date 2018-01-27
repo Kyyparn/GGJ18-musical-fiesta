@@ -39,7 +39,7 @@ namespace Assets.Scripts.Echoes
             GetComponent<SonarShader>().StartSonarRing(transform.position, value);
             foreach (var meshSpawner in EchoMeshSpawner.MeshSpawners)
             {
-                meshSpawner.CreateCopyOfMesh();
+                meshSpawner.CreateCopyOfMesh(transform.position,value*0.2f);
             }
         }
         //void StartRadiusIncrease()

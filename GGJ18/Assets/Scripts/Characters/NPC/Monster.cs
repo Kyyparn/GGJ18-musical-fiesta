@@ -31,6 +31,7 @@ namespace Assets.Scripts.Characters.NPC
         private List<AudioClip> MonsterAmbientSounds = new List<AudioClip>();
         private List<AudioClip> MonsterChaseSounds = new List<AudioClip>();
         
+        private AudioSource audioSource;
         // Use this for initialization
         void Start()
         {
@@ -44,6 +45,7 @@ namespace Assets.Scripts.Characters.NPC
             GameManager.Instance.RegisterMonster(this);
             MonsterAmbientSounds = MonsterAmbientSoundContainer.ListOfSounds;
             MonsterChaseSounds = MonsterChaseSoundContainer.ListOfSounds;
+            audioSource = this.GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -66,11 +68,14 @@ namespace Assets.Scripts.Characters.NPC
                 currentTarget = GetClosestWaypoint();
                 investigating = false;
                 waiting = true;
-                PlaySound(MonsterAmbientSounds);
                 coroutine = WaitForSeconds(5.0f);
                 StartCoroutine(coroutine);
             }
 
+            if(!audioSource.isPlaying)
+            {
+                PlaySoundWithoutRing(MonsterAmbientSounds);
+            }
             CheckIfNearPlayer();
         }
 
@@ -119,9 +124,9 @@ namespace Assets.Scripts.Characters.NPC
         public void StartChasingPlayer()
         {
             chasingPlayer = true;
-            PlaySound(MonsterChaseSounds);
+            PlaySoundWithRing(MonsterChaseSounds);
             Debug.Log("Start chasing");
-            InvokeRepeating("UpdateChase", 0.1f, 1.5f);
+            InvokeRepeating("UpdateChase", 0.1f, 1.0f);
         }
 
         public void UpdateChase()
@@ -144,10 +149,18 @@ namespace Assets.Scripts.Characters.NPC
             agent.SetDestination(nextPath.transform.position);
 
         }
-        void PlaySound(List<AudioClip> soundList)
+
+        void PlaySoundWithoutRing(List<AudioClip> soundList)
         {
             var audio = soundList[Random.Range(0, soundList.Count)];
-            echoSound.PlaySound(audio);
+            audioSource.clip = audio;
+            audioSource.Play();
+        }
+
+        void PlaySoundWithRing(List<AudioClip> soundList)
+        {
+            var audio = soundList[Random.Range(0, soundList.Count)];
+            echoSound.PlaySound(audio, transform.position);
         }
 
         void CheckIfNearPlayer()
