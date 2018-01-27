@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Managers;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,18 @@ namespace Assets.Scripts.Echoes
     {
         float intensity = 100f;
 
+        public bool isAmbientSound = false;
+
         [ContextMenu("Play Sound")]
         public void PlaySound()
         {
             GetComponent<AudioSource>().Play();
             GetComponent<SonarShader>().StartSonarRing(transform.position, intensity);
+
+            if (!isAmbientSound)
+            {
+                GameManager.Instance.SoundWasPlayed(transform.position, intensity);
+            }
         }
 
         //void StartRadiusIncrease()

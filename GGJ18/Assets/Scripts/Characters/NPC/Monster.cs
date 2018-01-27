@@ -15,6 +15,10 @@ namespace Assets.Scripts.Characters.NPC
         private int previousTarget;
 
         private GameObject[] checkpointList;
+        private bool investigating = false;
+        private bool waiting = false;
+
+        private IEnumerator coroutine;
 
         // Use this for initialization
         void Start()
@@ -32,12 +36,25 @@ namespace Assets.Scripts.Characters.NPC
         // Update is called once per frame
         void Update()
         {
-            if (agent.remainingDistance < 0.25f)
+            if (agent.remainingDistance < 0.5f && !investigating && !waiting)
             {
                 var nextPath = (checkpointList[currentTarget].GetComponent("Waypoint") as Waypoint).GetNextPath(checkpointList[previousTarget].transform);
                 agent.SetDestination(nextPath.transform.position);
                 previousTarget = currentTarget;
                 currentTarget = FindIndexInList(nextPath);
+            }
+            else if(agent.remainingDistance < 0.5f && investigating)
+            {
+                if(coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }                
+                previousTarget = currentTarget;
+                currentTarget = GetClosestWaypoint();
+                investigating = false;
+                waiting = true;
+                coroutine = WaitForSeconds(5.0f);
+                StartCoroutine(coroutine);
             }
         }
 
@@ -73,7 +90,14 @@ namespace Assets.Scripts.Characters.NPC
 
         public void WalkToPosition(Vector3 pos)
         {
+            investigating = true;
             agent.SetDestination(pos);
+        }
+
+        IEnumerator WaitForSeconds(float time)
+        {
+            yield return new WaitForSeconds(time);
+            waiting = false;
         }
     }
 }
