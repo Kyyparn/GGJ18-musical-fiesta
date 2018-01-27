@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Managers;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Assets.Scripts.Characters.NPC
 {
+    [RequireComponent(typeof(NavMeshAgent))]
     public class Monster : NonPlayerCharacter
     {
         private NavMeshAgent agent;
@@ -23,6 +25,8 @@ namespace Assets.Scripts.Characters.NPC
             currentTarget = GetClosestWaypoint();
             var nextPath = (checkpointList[currentTarget].GetComponent("Waypoint") as Waypoint).GetNextPath(checkpointList[previousTarget].transform);
             agent.SetDestination(nextPath.transform.position);
+
+            GameManager.Instance.RegisterMonster(this);
         }
 
         // Update is called once per frame
