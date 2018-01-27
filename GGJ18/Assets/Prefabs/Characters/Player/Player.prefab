@@ -25,9 +25,9 @@ GameObject:
   - component: {fileID: 82630099757469718}
   - component: {fileID: 114699154416684068}
   - component: {fileID: 114880756415876108}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 82937148266722164}
   - component: {fileID: 114091464808640146}
   - component: {fileID: 114658920913292824}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Scream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 20401299547527582}
   - component: {fileID: 81152278066741704}
   - component: {fileID: 124689288403193764}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FirstPersonCharacter
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -87,15 +87,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1456249005628032}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.363651, y: -1.36, z: -9.987906}
+  m_LocalRotation: {x: -0, y: 0.7907344, z: -0, w: -0.6121595}
+  m_LocalPosition: {x: 14.65, y: 0.74, z: 8.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4927398725091194}
   - {fileID: 4501197717026492}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 255.492, z: 0}
 --- !u!4 &4927398725091194
 Transform:
   m_ObjectHideFlags: 1
@@ -503,30 +503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intensity: 100
-  intensityFalloff:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   isAmbientSound: 0
 --- !u!114 &114699154416684068
 MonoBehaviour:
@@ -540,10 +516,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screamSounds:
+  - {fileID: 8300000, guid: e3110a6740b1a904dbc0d42fa4771c21, type: 3}
   - {fileID: 8300000, guid: 38b5904ff8d1f344e9c5683e5d9fe464, type: 3}
   - {fileID: 8300000, guid: 3cca3cac07913854f950a1c4d5399daf, type: 3}
   - {fileID: 8300000, guid: 4a6ef0fadc2d9914d8700929c2167d38, type: 3}
-  - {fileID: 8300000, guid: e3110a6740b1a904dbc0d42fa4771c21, type: 3}
   scream: {fileID: 114658920913292824}
 --- !u!114 &114880756415876108
 MonoBehaviour:

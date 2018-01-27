@@ -19,13 +19,19 @@ namespace Assets.Scripts.Characters.NPC
         private bool investigating = false;
         private bool waiting = false;
 
+        private bool chasingPlayer = false;
+
         private IEnumerator coroutine;
 
         private EcoLocationAudioSource echoSound;
 
-        public SoundContainer MonsterSoundContainer;
+        public SoundContainer MonsterAmbientSoundContainer;
+        public SoundContainer MonsterChaseSoundContainer;
 
         private List<AudioClip> MonsterAmbientSounds = new List<AudioClip>();
+        private List<AudioClip> MonsterChaseSounds = new List<AudioClip>();
+        
+        private AudioSource audioSource;
         // Use this for initialization
         void Start()
         {
@@ -35,9 +41,11 @@ namespace Assets.Scripts.Characters.NPC
             currentTarget = GetClosestWaypoint();
             var nextPath = (checkpointList[currentTarget].GetComponent("Waypoint") as Waypoint).GetNextPath(checkpointList[previousTarget].transform);
             agent.SetDestination(nextPath.transform.position);
-            echoSound = gameObject.GetComponent<EcoLocationAudioSource>();
+            echoSound = this.GetComponent<EcoLocationAudioSource>();
             GameManager.Instance.RegisterMonster(this);
-            MonsterAmbientSounds = MonsterSoundContainer.ListOfSounds;
+            MonsterAmbientSounds = MonsterAmbientSoundContainer.ListOfSounds;
+            MonsterChaseSounds = MonsterChaseSoundContainer.ListOfSounds;
+            audioSource = this.GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -63,6 +71,12 @@ namespace Assets.Scripts.Characters.NPC
                 coroutine = WaitForSeconds(5.0f);
                 StartCoroutine(coroutine);
             }
+
+            if(!audioSource.isPlaying)
+            {
+                PlaySoundWithoutRing(MonsterAmbientSounds);
+            }
+            CheckIfNearPlayer();
         }
 
         int GetClosestWaypoint()
@@ -106,5 +120,75 @@ namespace Assets.Scripts.Characters.NPC
             yield return new WaitForSeconds(time);
             waiting = false;
         }
+
+        public void StartChasingPlayer()
+        {
+            chasingPlayer = true;
+            PlaySoundWithRing(MonsterChaseSounds);
+            Debug.Log("Start chasing");
+            InvokeRepeating("UpdateChase", 0.1f, 1.0f);
+        }
+
+        public void UpdateChase()
+        {
+            Debug.Log("ShowRing");
+            echoSound.PlaySonarRing(10.0f);
+        }
+
+        public void StopChasingPlayer()
+        {
+            if(IsInvoking("UpdateChase"))
+            {
+                Debug.Log("Stop chasing");
+                CancelInvoke("UpdateChase");
+            }
+            chasingPlayer = false;
+            previousTarget = currentTarget;
+            currentTarget = GetClosestWaypoint();
+            var nextPath = (checkpointList[currentTarget].GetComponent("Waypoint") as Waypoint).GetNextPath(checkpointList[previousTarget].transform);
+            agent.SetDestination(nextPath.transform.position);
+
+        }
+
+        void PlaySoundWithoutRing(List<AudioClip> soundList)
+        {
+            var audio = soundList[Random.Range(0, soundList.Count)];
+            audioSource.clip = audio;
+            audioSource.Play();
+        }
+
+        void PlaySoundWithRing(List<AudioClip> soundList)
+        {
+            var audio = soundList[Random.Range(0, soundList.Count)];
+            echoSound.PlaySound(audio, transform.position);
+        }
+
+        void CheckIfNearPlayer()
+        {
+            var player = GameManager.Instance.Player;
+            var aggroDistance = 5.0f;
+            var distance = (transform.position - player.transform.position).magnitude;
+            if (distance <= aggroDistance)
+            {
+                if(distance < 0.5f)
+                {
+                    //Debug.Log("DED");
+                    return;
+                }
+                if(!chasingPlayer)
+                {
+                    StartChasingPlayer();
+                }
+                WalkToPosition(player.transform.position);
+            }
+            else if(distance > aggroDistance)
+            {
+                if(chasingPlayer)
+                {
+                    StopChasingPlayer();
+                }
+            }
+        }
+
     }
 }

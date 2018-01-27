@@ -1,12 +1,9 @@
 ﻿using Assets.Scripts.Echoes;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RepeatingSound : MonoBehaviour
 {
-    public List<AudioClip> sounds;
-    public float timeBetweenSounds;
-    public float maxRandomExtraDelay;
+    public SoundContainer soundContainer;
 
     private EcoLocationAudioSource echoAudioSource;
     private float timeUntilNextSound;
@@ -22,7 +19,7 @@ public class RepeatingSound : MonoBehaviour
         timeUntilNextSound -= Time.deltaTime;
         if(timeUntilNextSound < 0)
         {
-            var audio = sounds[Random.Range(0, sounds.Count)];
+            var audio = soundContainer.ListOfSounds[Random.Range(0, soundContainer.ListOfSounds.Count)];
             echoAudioSource.PlaySound(audio, transform.position);
             UpdateTimeUntilNextSound();
         }
@@ -30,6 +27,6 @@ public class RepeatingSound : MonoBehaviour
 
     private void UpdateTimeUntilNextSound()
     {
-        timeUntilNextSound = timeBetweenSounds + Random.Range(0, maxRandomExtraDelay);
+        timeUntilNextSound = Random.Range(soundContainer.MinRepeatTime, soundContainer.MaxRepeatTime);
     }
 }

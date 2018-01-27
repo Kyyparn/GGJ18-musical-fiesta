@@ -9,11 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 856b488030464934a8924ed4c86a053a, type: 3}
-  m_Name: WaterDrop
+  m_Name: MonsterChaseSounds
   m_EditorClassIdentifier: 
   ListOfSounds:
-  - {fileID: 8300000, guid: 46a36bbfcfbe58c438285c34d9f65fee, type: 3}
-  - {fileID: 8300000, guid: 7757bd5d74aad3b4a9aa92d3ea8763bf, type: 3}
-  - {fileID: 8300000, guid: 5194dcc57666b1b4a9b3f2b68ffc314a, type: 3}
-  MinRepeatTime: 3
-  MaxRepeatTime: 6
+  - {fileID: 8300000, guid: 8a726c517ed281c4f94efd5672e3fe63, type: 3}
+  - {fileID: 8300000, guid: 4b611e6a7c4acbc4cb899965f03f6fc3, type: 3}
+  MinRepeatTime: 0
+  MaxRepeatTime: 0

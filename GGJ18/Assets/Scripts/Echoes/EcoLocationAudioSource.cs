@@ -34,6 +34,14 @@ namespace Assets.Scripts.Echoes
             }
         }
 
+        public void PlaySonarRing(float value)
+        {
+            GetComponent<SonarShader>().StartSonarRing(transform.position, value);
+            foreach (var meshSpawner in EchoMeshSpawner.MeshSpawners)
+            {
+                meshSpawner.CreateCopyOfMesh(transform.position,value*0.2f);
+            }
+        }
         //void StartRadiusIncrease()
         //{
         //    StartCoroutine(LinearUpdate(0, goalLength, increaseTime, ScaleGo, StartRadiusDecrease));
