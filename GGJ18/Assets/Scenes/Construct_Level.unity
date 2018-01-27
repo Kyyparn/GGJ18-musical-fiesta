@@ -1664,12 +1664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b431681755cc2dd4b82472d4a5b7ff40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
-  - {fileID: 8300000, guid: 46a36bbfcfbe58c438285c34d9f65fee, type: 3}
-  - {fileID: 8300000, guid: 7757bd5d74aad3b4a9aa92d3ea8763bf, type: 3}
-  - {fileID: 8300000, guid: 5194dcc57666b1b4a9b3f2b68ffc314a, type: 3}
-  timeBetweenSounds: 3
-  maxRandomExtraDelay: 3
+  soundContainer: {fileID: 11400000, guid: 1cd3b50ec25da9940a6e06b43aba19c3, type: 2}
 --- !u!114 &676066736
 MonoBehaviour:
   m_ObjectHideFlags: 0

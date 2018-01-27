@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: WaterDrop
   m_EditorClassIdentifier: 
   ListOfSounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 46a36bbfcfbe58c438285c34d9f65fee, type: 3}
+  - {fileID: 8300000, guid: 7757bd5d74aad3b4a9aa92d3ea8763bf, type: 3}
+  - {fileID: 8300000, guid: 5194dcc57666b1b4a9b3f2b68ffc314a, type: 3}
+  MinRepeatTime: 3
+  MaxRepeatTime: 6
