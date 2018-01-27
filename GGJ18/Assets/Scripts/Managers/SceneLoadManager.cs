@@ -39,22 +39,28 @@ namespace Assets.Scripts.Managers
 
         public void LoadScene(string sceneName)
         {
-            Player player = GameManager.Instance.Player;
+            if (endPoint)
+            {
+                Player player = GameManager.Instance.Player;
 
-            relativeData.position = endPoint.transform.InverseTransformPoint(player.transform.position);
-            relativeData.playerRotation = endPoint.transform.InverseTransformDirection(player.transform.forward);
-            relativeData.cameraRotation = player.GetComponentInChildren<Camera>().transform.localRotation;
+                relativeData.position = endPoint.transform.InverseTransformPoint(player.transform.position);
+                relativeData.playerRotation = endPoint.transform.InverseTransformDirection(player.transform.forward);
+                relativeData.cameraRotation = player.GetComponentInChildren<Camera>().transform.localRotation;
+            }
 
             SceneManager.LoadScene(sceneName);
         }
 
         void SpawnPlayer()
         {
-            Player player = GameObject.Instantiate(playerPrefab);
+            if (entryPoint)
+            {
+                Player player = GameObject.Instantiate(playerPrefab);
 
-            player.transform.position = entryPoint.transform.TransformPoint(relativeData.position);
-            player.transform.rotation = Quaternion.LookRotation(entryPoint.transform.TransformDirection(relativeData.playerRotation), Vector3.up);
-            player.GetComponentInChildren<Camera>().transform.localRotation = relativeData.cameraRotation;
+                player.transform.position = entryPoint.transform.TransformPoint(relativeData.position);
+                player.transform.rotation = Quaternion.LookRotation(entryPoint.transform.TransformDirection(relativeData.playerRotation), Vector3.up);
+                player.GetComponentInChildren<Camera>().transform.localRotation = relativeData.cameraRotation;
+            }
         }
     }
 }
