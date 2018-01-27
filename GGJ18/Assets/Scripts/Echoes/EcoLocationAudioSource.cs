@@ -21,8 +21,7 @@ namespace Assets.Scripts.Echoes
 
             foreach (var meshSpawner in EchoMeshSpawner.MeshSpawners)
             {
-                //TODO: Should not always be created
-                meshSpawner.CreateCopyOfMesh();
+                meshSpawner.CreateCopyOfMesh(sourcePosition, intensityWithFalloff * 0.1f);
             }
             var audioSource = GetComponent<AudioSource>();
             audioSource.clip = audio;
