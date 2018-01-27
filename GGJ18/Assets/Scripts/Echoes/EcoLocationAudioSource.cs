@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Managers;
 using UnityEngine;
 
 namespace Assets.Scripts.Echoes
@@ -9,13 +7,26 @@ namespace Assets.Scripts.Echoes
     [RequireComponent(typeof(SonarShader))]
     public class EcoLocationAudioSource : MonoBehaviour
     {
-        float intensity = 100f;
+        public float intensity = 100f;
+
+        public bool isAmbientSound = false;
 
         [ContextMenu("Play Sound")]
-        public void PlaySound()
+        public void PlaySound(AudioClip audio)
         {
-            GetComponent<AudioSource>().Play();
+            foreach (var meshSpawner in EchoMeshSpawner.MeshSpawners)
+            {
+                meshSpawner.CreateCopyOfMesh();
+            }
+            var audioSource = GetComponent<AudioSource>();
+            audioSource.clip = audio;
+            audioSource.Play();
             GetComponent<SonarShader>().StartSonarRing(transform.position, intensity);
+
+            if (!isAmbientSound)
+            {
+                GameManager.Instance.SoundWasPlayed(transform.position, intensity);
+            }
         }
 
         //void StartRadiusIncrease()

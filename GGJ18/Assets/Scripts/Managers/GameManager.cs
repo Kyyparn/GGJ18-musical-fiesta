@@ -13,7 +13,12 @@ namespace Assets.Scripts.Managers
 
         public Player Player { get; set; }
 
-        protected List<Monster> monsters;
+        protected List<Monster> monsters = new List<Monster>();
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         public void RegisterMonster(Monster monster)
         {

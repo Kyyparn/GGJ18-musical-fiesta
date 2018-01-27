@@ -7,13 +7,16 @@ namespace Assets.Scripts.Characters.Player
 {
     public class PlayerInputComponent : MonoBehaviour
     {
+        public List<AudioClip> screamSounds;
+
         public EcoLocationAudioSource scream;
 
         void Update()
         {
             if(Input.GetButtonDown("Fire1"))
             {
-                scream.PlaySound();
+                var audio = screamSounds[Random.Range(0, screamSounds.Count)];
+                scream.PlaySound(audio);
             }
         }
     }
