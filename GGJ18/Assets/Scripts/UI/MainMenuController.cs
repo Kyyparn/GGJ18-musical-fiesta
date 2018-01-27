@@ -3,49 +3,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainMenuController : MonoBehaviour {
-
-    public RectTransform MainMenuPanel;
-    public RectTransform LevelSelectPanel;
-
-    List<RectTransform> panels;
-
-    void Awake()
+namespace Assets.Scripts.UI
+{
+    public class MainMenuController : MonoBehaviour
     {
-        panels = new List<RectTransform>();
 
-        panels.Add(MainMenuPanel);
-        panels.Add(LevelSelectPanel);
+        public RectTransform MainMenuPanel;
+        public RectTransform LevelSelectPanel;
 
-        DisableAllPanels();
+        List<RectTransform> panels;
 
-        GotoMainMenu();
-    }
+        void Awake()
+        {
+            panels = new List<RectTransform>();
 
-    private void DisableAllPanels()
-    {
-        panels.ForEach(p => p.gameObject.SetActive(false));
-    }
+            panels.Add(MainMenuPanel);
+            panels.Add(LevelSelectPanel);
 
-    public void GotoLevelSelect()
-    {
-        DisableAllPanels();
-        LevelSelectPanel.gameObject.SetActive(true);
-    }
+            DisableAllPanels();
 
-    public void GotoMainMenu()
-    {
-        DisableAllPanels();
-        MainMenuPanel.gameObject.SetActive(true);
-    }
+            GotoMainMenu();
+        }
 
-    public void ExitGame()
-    {
-        Application.Quit();
-    }
+        private void DisableAllPanels()
+        {
+            panels.ForEach(p => p.gameObject.SetActive(false));
+        }
 
-    public void StartLevel(string levelName)
-    {
-        SceneLoadManager.Instance.LoadScene(levelName);
+        public void GotoLevelSelect()
+        {
+            DisableAllPanels();
+            LevelSelectPanel.gameObject.SetActive(true);
+        }
+
+        public void GotoMainMenu()
+        {
+            DisableAllPanels();
+            MainMenuPanel.gameObject.SetActive(true);
+        }
+
+        public void ExitGame()
+        {
+            Application.Quit();
+        }
+
+        public void StartLevel(string levelName)
+        {
+            SceneLoadManager.Instance.LoadScene(levelName);
+        }
     }
 }
