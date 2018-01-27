@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 34c5a3b6e6e38804f8163a6a57ae7879
+guid: a37e1c85b95bcf84cb1ba01f7994dc6f
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Monster_Pose1
+    100000: GlasBottle
     100002: //RootNode
-    400000: Monster_Pose1
+    400000: GlasBottle
     400002: //RootNode
-    2100000: Monster_Pose1Mat
-    2300000: Monster_Pose1
-    3300000: Monster_Pose1
-    4300000: Monster_Pose1
+    2100000: GlasBottleMat
+    2300000: GlasBottle
+    3300000: GlasBottle
+    4300000: GlasBottle
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -42,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.25
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
