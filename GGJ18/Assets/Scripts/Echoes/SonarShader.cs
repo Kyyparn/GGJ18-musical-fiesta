@@ -61,7 +61,7 @@ namespace Assets.Scripts.Echoes
         public void StartSonarRing(Vector4 position, float intensity)
         {
             // Put values into the queue
-            position.w = Time.time;
+            position.w = Time.timeSinceLevelLoad;
             positionsQueue.Dequeue();
             positionsQueue.Enqueue(position);
 
