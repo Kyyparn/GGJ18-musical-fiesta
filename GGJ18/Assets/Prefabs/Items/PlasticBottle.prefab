@@ -11,23 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1607170593468612}
   m_IsPrefabParent: 1
---- !u!1 &1220503280994444
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4454469374301878}
-  - component: {fileID: 33918095938409674}
-  - component: {fileID: 23702000046147854}
-  m_Layer: 10
-  m_Name: PlasticBottle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1607170593468612
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +26,9 @@ GameObject:
   - component: {fileID: 114562818461040598}
   - component: {fileID: 114404616538481322}
   - component: {fileID: 114378510435494704}
+  - component: {fileID: 33738774126580008}
+  - component: {fileID: 114408437488234840}
+  - component: {fileID: 23377053358563962}
   m_Layer: 10
   m_Name: PlasticBottle
   m_TagString: Untagged
@@ -50,19 +36,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4454469374301878
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1220503280994444}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4979484208128122}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4979484208128122
 Transform:
   m_ObjectHideFlags: 1
@@ -70,19 +43,18 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1607170593468612}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0749998, y: 1.152, z: -2.236}
+  m_LocalPosition: {x: 1.373944, y: -1.83747e-16, z: 8.275229}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
-  m_Children:
-  - {fileID: 4454469374301878}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23702000046147854
+--- !u!23 &23377053358563962
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1220503280994444}
+  m_GameObject: {fileID: 1607170593468612}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -112,12 +84,12 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33918095938409674
+--- !u!33 &33738774126580008
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1220503280994444}
+  m_GameObject: {fileID: 1607170593468612}
   m_Mesh: {fileID: 4300000, guid: 91016dcdfdb8c8047a888c79d39c0e89, type: 3}
 --- !u!54 &54411669673047198
 Rigidbody:
@@ -168,7 +140,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -301,6 +273,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97cc9937dc6049d469b1e950a7add63a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114408437488234840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607170593468612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbcbc151a4cba34790ecadee92153cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshSpawnerPrefab: {fileID: 1773562866122700, guid: 7ceabd7b24a63ed46ba743070c35d691,
+    type: 2}
 --- !u!114 &114562818461040598
 MonoBehaviour:
   m_ObjectHideFlags: 1
