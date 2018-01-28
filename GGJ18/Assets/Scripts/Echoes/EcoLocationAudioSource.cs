@@ -30,7 +30,7 @@ namespace Assets.Scripts.Echoes
 
             if (!isAmbientSound)
             {
-                GameManager.Instance.SoundWasPlayed(transform.position, intensityWithFalloff);
+                GameManager.Instance.SoundWasPlayed(transform.position, intensity);
             }
         }
 
@@ -47,6 +47,10 @@ namespace Assets.Scripts.Echoes
             foreach (var meshSpawner in EchoMeshSpawner.MeshSpawners)
             {
                 meshSpawner.CreateCopyOfMesh(transform.position,value*0.2f);
+            }
+            if (!isAmbientSound)
+            {
+                GameManager.Instance.SoundWasPlayed(transform.position, intensity);
             }
         }
     }

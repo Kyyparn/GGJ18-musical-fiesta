@@ -31,7 +31,7 @@ namespace Assets.Scripts.Managers
         {
             foreach(Monster monster in monsters)
             {
-                if((monster.transform.position - position).magnitude <= distance)
+                if((monster.transform.position - position).magnitude <= distance * 0.1f)
                 {
                     monster.WalkToPosition(position);
                 }
