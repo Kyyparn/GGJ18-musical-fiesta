@@ -24,10 +24,10 @@ GameObject:
   - component: {fileID: 136156766346768062}
   - component: {fileID: 195618052802544850}
   - component: {fileID: 114055166420072034}
-  - component: {fileID: 114156534052855904}
   - component: {fileID: 114871613288656386}
   - component: {fileID: 82142049907596584}
   - component: {fileID: 114270904799006870}
+  - component: {fileID: 114938056984831024}
   m_Layer: 9
   m_Name: Monster
   m_TagString: Untagged
@@ -200,19 +200,6 @@ MonoBehaviour:
     type: 2}
   MonsterChaseSoundContainer: {fileID: 11400000, guid: 499ed47972fb73b44bda9b47b17e6854,
     type: 2}
---- !u!114 &114156534052855904
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1827744351269136}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bbcbc151a4cba34790ecadee92153cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  meshSpawnerPrefab: {fileID: 1773562866122700, guid: 7ceabd7b24a63ed46ba743070c35d691,
-    type: 2}
 --- !u!114 &114270904799006870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,6 +248,22 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   isAmbientSound: 1
+--- !u!114 &114938056984831024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1827744351269136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce17d37c4b234e478c58879ab9a0c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshSpawnerPrefab: {fileID: 1773562866122700, guid: 7ceabd7b24a63ed46ba743070c35d691,
+    type: 2}
+  PatrolMeshes: {fileID: 11400000, guid: 9792e6a95ccbaf54381eb48d3f0a1eb5, type: 2}
+  ChaseMeshes: {fileID: 11400000, guid: 692f4550a4da0294695d8076b1ed4446, type: 2}
+  MonsterState: 0
 --- !u!136 &136156766346768062
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -283,7 +286,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

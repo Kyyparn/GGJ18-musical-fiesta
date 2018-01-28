@@ -5,19 +5,14 @@ using UnityEngine;
 
 namespace Assets.Scripts.Characters.Player
 {
+    [RequireComponent(typeof(Player))]
     public class PlayerInputComponent : MonoBehaviour
     {
-        public List<AudioClip> screamSounds;
-
-        public EcoLocationAudioSource scream;
-        
-
         void Update()
         {
             if(Input.GetButtonDown("Fire1"))
             {
-                var audio = screamSounds[Random.Range(0, screamSounds.Count)];
-                scream.PlaySound(audio, transform.position);
+                GetComponent<Player>().Scream();
             }
             else if(Input.GetButtonDown("Fire2") && GetComponent<Player>().holdingObject)
             {
