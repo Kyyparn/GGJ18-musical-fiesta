@@ -154,7 +154,6 @@ namespace Assets.Scripts.Characters.NPC
         {
             var audio = soundList[Random.Range(0, soundList.Count)];
             audioSource.clip = audio;
-            Debug.Log("Play audio: " + audio.name);
             audioSource.Play();
         }
 

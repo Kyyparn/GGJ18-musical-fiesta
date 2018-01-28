@@ -16,7 +16,12 @@ namespace Assets.Scripts.Characters.Player
             }
             else if(Input.GetButtonDown("Fire2") && GetComponent<Player>().holdingObject)
             {
-                Debug.Log("Throw object");
+                var player = GetComponent<Player>();
+                if (player.holdingObject)
+                {
+                    player.ThrowObject();   
+                }
+                
             }
             else if(Input.GetButtonDown("Use"))
             {
@@ -25,18 +30,10 @@ namespace Assets.Scripts.Characters.Player
                 if(Physics.Raycast(ray,out hit))
                 {
                     var distance = (transform.position - hit.transform.position).magnitude;
-                    if (hit.transform.gameObject.GetComponent<InterractableObject>() != null && distance <= 2.0f)
+                    var interactable = hit.transform.gameObject.GetComponent<Interactable>();
+                    if (interactable != null && distance <= 2.0f)
                     {
-                        var player = GetComponent<Player>();
-                        var go = hit.transform.gameObject;
-                        if (GetComponent<Player>().holdingObject)
-                        {
-                            player.SwapObjects(go);
-                        }
-                        else
-                        {
-                            player.PickupObject(go);
-                        }
+                        interactable.Interract();
                     }
                 }
             }
