@@ -69,8 +69,12 @@ public class PickupItem : Interactable
 
     void OnCollisionEnter()
     {
+
         var audio = throwSoundList[Random.Range(0, throwSoundList.Count)];
-        ecoLocationAudioSource.intensity = pickupData.throwSoundIntensity;
+        if (ecoLocationAudioSource == null || audio == null)
+            return;
+
+            ecoLocationAudioSource.intensity = pickupData.throwSoundIntensity;
         ecoLocationAudioSource.PlaySound(audio, transform.position);
     }
 }

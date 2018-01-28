@@ -1,5 +1,5 @@
 ﻿public class ElevatorButton : Interactable {
-
+    
     public Elevator Elevator;
 
     // Use this for initialization
@@ -8,6 +8,12 @@
         if(Elevator.IsElevatorOpen)
         {
             Elevator.CloseDoors();
+            Invoke("LoadNextLevel", 5);
         }
+    }
+
+    private void LoadNextLevel()
+    {
+        Elevator.LoadNextLevel();
     }
 }

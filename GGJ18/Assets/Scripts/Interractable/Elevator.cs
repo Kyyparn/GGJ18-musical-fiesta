@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Assets.Scripts.Managers;
 using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
+    public string NextLevelName;
     public bool IsElevatorOpen;
 
     private Animator animator;
@@ -39,5 +39,10 @@ public class Elevator : MonoBehaviour
             animator.SetBool("OpenDoor", false);
             IsElevatorOpen = false;
         }
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneLoadManager.Instance.LoadSceneWithRelativePlayerSpawnPosition(NextLevelName);
     }
 }

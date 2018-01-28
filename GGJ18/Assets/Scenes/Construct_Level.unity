@@ -975,6 +975,11 @@ Prefab:
       propertyPath: configuration
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114713372938197708, guid: fec5b9f97d70c4b40acca3df70f35784,
+        type: 2}
+      propertyPath: NextLevelName
+      value: Office_Level
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fec5b9f97d70c4b40acca3df70f35784, type: 2}
   m_IsPrefabParent: 0
@@ -10363,6 +10368,10 @@ Prefab:
     - target: {fileID: 1706060439159788, guid: fec5b9f97d70c4b40acca3df70f35784, type: 2}
       propertyPath: m_Name
       value: EntryElevator
+      objectReference: {fileID: 0}
+    - target: {fileID: 1573643745938002, guid: fec5b9f97d70c4b40acca3df70f35784, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fec5b9f97d70c4b40acca3df70f35784, type: 2}
