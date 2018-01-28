@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Managers;
+﻿using Assets.Scripts.Echoes;
+using Assets.Scripts.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class PickupItem : Interactable
 
     private List<AudioClip> pickupSoundList;
     private List<AudioClip> throwSoundList;
+    private EcoLocationAudioSource ecoLocationAudioSource;
 
 	// Use this for initialization
 	void Start ()
@@ -23,6 +25,8 @@ public class PickupItem : Interactable
 
         pickupSoundList = pickupData.PickupSound;
         throwSoundList = pickupData.ThrowSound;
+
+        ecoLocationAudioSource = GetComponent<EcoLocationAudioSource>();
     }
 	
 	// Update is called once per frame
@@ -37,13 +41,13 @@ public class PickupItem : Interactable
         var player = GameManager.Instance.Player;
         if (player.holdingObject)
         {
-            player.SwapObjects(this.gameObject);
             PickupSound();
+            player.SwapObjects(this.gameObject);
         }
         else
         {
-            player.PickupObject(this.gameObject);
             PickupSound();
+            player.PickupObject(this.gameObject);
         }
     }
 
@@ -56,8 +60,14 @@ public class PickupItem : Interactable
     public void PickupSound()
     {
         var audio = pickupSoundList[Random.Range(0, pickupSoundList.Count)];
-        var audioSource = GetComponent<AudioSource>();
-        audioSource.clip = audio;
-        audioSource.Play();
+        ecoLocationAudioSource.intensity = pickupData.pickUpSoundIntensity;
+        ecoLocationAudioSource.PlaySound(audio, transform.position);
+    }
+
+    void OnCollisionEnter()
+    {
+        var audio = throwSoundList[Random.Range(0, throwSoundList.Count)];
+        ecoLocationAudioSource.intensity = pickupData.throwSoundIntensity;
+        ecoLocationAudioSource.PlaySound(audio, transform.position);
     }
 }

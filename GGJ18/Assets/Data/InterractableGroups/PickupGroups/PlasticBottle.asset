@@ -13,5 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThrowSound:
   - {fileID: 8300000, guid: dda42936d00b6c947b8efd59a1b3e5e6, type: 3}
+  throwSoundIntensity: 30
   PickupSound:
   - {fileID: 8300000, guid: 9389999d9d5417146ba3b14b12353729, type: 3}
+  pickUpSoundIntensity: 10

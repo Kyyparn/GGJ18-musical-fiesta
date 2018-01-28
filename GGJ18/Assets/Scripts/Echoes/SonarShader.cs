@@ -84,11 +84,5 @@ namespace Assets.Scripts.Echoes
                 r.material.SetFloatArray("_Intensity", intensityQueue.ToArray());
             }
         }
-
-        void OnCollisionEnter()
-        {
-            StartSonarRing(transform.position, 50);
-            // Start sonar ring from the contact point
-        }
     }
 }

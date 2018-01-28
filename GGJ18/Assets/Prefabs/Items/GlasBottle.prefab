@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 65412866748892886}
   - component: {fileID: 82769029060362992}
   - component: {fileID: 114576063724655194}
+  - component: {fileID: 114591746871178326}
+  - component: {fileID: 114505238531460330}
   m_Layer: 10
   m_Name: GlasBottle
   m_TagString: Untagged
@@ -55,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1661444028667792}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.1, y: 1.185, z: 0.625}
+  m_LocalPosition: {x: 7.62, y: -1.5013042e-16, z: 6.761272}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 4780930477284440}
@@ -90,7 +92,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a37e1c85b95bcf84cb1ba01f7994dc6f, type: 3}
+  - {fileID: 2100000, guid: 8123ba16aeed80c4eb1f2bc4bb898b64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,7 +213,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -251,6 +253,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114505238531460330
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661444028667792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd642c47101bc7f43aaa2521da873853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 40
+  intensityFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  isAmbientSound: 1
 --- !u!114 &114576063724655194
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -267,3 +306,14 @@ MonoBehaviour:
   localRot: {x: 0, y: 0, z: 0, w: 0}
   localScale: {x: 0, y: 0, z: 0}
   pickupData: {fileID: 11400000, guid: cd078a2d6f35198469997e274745e4d0, type: 2}
+--- !u!114 &114591746871178326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1661444028667792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cc9937dc6049d469b1e950a7add63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

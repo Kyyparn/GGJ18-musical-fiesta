@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 82585606204107966}
   - component: {fileID: 65717354166920224}
   - component: {fileID: 114562818461040598}
+  - component: {fileID: 114404616538481322}
+  - component: {fileID: 114378510435494704}
   m_Layer: 10
   m_Name: PlasticBottle
   m_TagString: Untagged
@@ -90,7 +92,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 91016dcdfdb8c8047a888c79d39c0e89, type: 3}
+  - {fileID: 2100000, guid: 8123ba16aeed80c4eb1f2bc4bb898b64, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -211,7 +213,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -251,6 +253,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114378510435494704
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607170593468612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd642c47101bc7f43aaa2521da873853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensity: 10
+  intensityFalloff:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  isAmbientSound: 1
+--- !u!114 &114404616538481322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1607170593468612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97cc9937dc6049d469b1e950a7add63a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114562818461040598
 MonoBehaviour:
   m_ObjectHideFlags: 1
