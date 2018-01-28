@@ -47,7 +47,7 @@ namespace Assets.Scripts.Characters.Player
         {
             pickupPosition.DetachChildren();
 
-            var objectStats = currentObjectInHands.GetComponent<InterractableObject>();
+            var objectStats = currentObjectInHands.GetComponent<PickupItem>();
 
             currentObjectInHands.transform.localPosition = objectStats.localPos;
             currentObjectInHands.transform.localRotation = objectStats.localRot;
@@ -57,12 +57,7 @@ namespace Assets.Scripts.Characters.Player
             var rot = go.transform.rotation;
             currentObjectInHands.transform.position = pos;
             currentObjectInHands.transform.rotation = rot;
-
-            
-
-            
-
-            
+            currentObjectInHands.GetComponent<Rigidbody>().isKinematic = true;
             PickupObject(go);
         }
 
@@ -75,6 +70,17 @@ namespace Assets.Scripts.Characters.Player
             go.transform.localScale = new Vector3(1, 1, 1);
             currentObjectInHands = go;
             holdingObject = true;
+            go.GetComponent<Rigidbody>().isKinematic = true;
+        }
+
+        public void ThrowObject()
+        {
+            pickupPosition.DetachChildren();
+            var rigidBody = currentObjectInHands.GetComponent<Rigidbody>();
+            rigidBody.isKinematic = false;
+            rigidBody.AddForce(Camera.main.gameObject.transform.forward * 500);
+            holdingObject = false;
+            currentObjectInHands = null;
         }
     }
 }
