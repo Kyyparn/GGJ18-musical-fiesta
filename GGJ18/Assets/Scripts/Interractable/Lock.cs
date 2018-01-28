@@ -8,6 +8,7 @@ public class Lock : Interactable
 {
     public GameObject key;
     public PickupContainer lockSounds;
+    public Elevator Elevator;
 
     private List<AudioClip> lockedSounds;
     private List<AudioClip> unlockedSounds;
@@ -28,6 +29,7 @@ public class Lock : Interactable
         {
             UnlockSound();
             player.OpenLock();
+            Elevator.OpenDoors();
             Destroy(this.gameObject,0.25f);
         }
         else
