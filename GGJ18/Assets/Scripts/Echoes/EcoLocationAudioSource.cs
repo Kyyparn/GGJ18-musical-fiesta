@@ -34,6 +34,13 @@ namespace Assets.Scripts.Echoes
             }
         }
 
+        public void PlaySonarRing(Vector3 sourcePosition)
+        {
+            var distanceToPlayer = Vector3.Distance(GameManager.Instance.Player.transform.position, sourcePosition);
+            var intensityWithFalloff = intensityFalloff.Evaluate((intensity - (distanceToPlayer * 2)) / intensity) * intensity;
+            PlaySonarRing(intensityWithFalloff);
+        }
+
         public void PlaySonarRing(float value)
         {
             GetComponent<SonarShader>().StartSonarRing(transform.position, value);
