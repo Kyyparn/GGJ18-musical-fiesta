@@ -35,11 +35,12 @@ public class EchoMeshSpawner : MonoBehaviour {
 
     public virtual void CreateCopyOfMesh(Vector3 aroundPoint, float radius)
     {
-        if(Vector3.Distance(transform.position, aroundPoint) <= radius)
+        if(Vector3.Distance(transform.position, aroundPoint) <= radius && this.enabled)
         {
             var gameObject = Instantiate(meshSpawnerPrefab, transform.position, transform.rotation) as GameObject;
             gameObject.transform.localScale = transform.localScale;
             gameObject.GetComponent<MeshFilter>().mesh = meshFilter.mesh;
+            gameObject.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
         }
     }
 }

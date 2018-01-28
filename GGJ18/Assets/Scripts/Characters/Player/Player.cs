@@ -53,6 +53,9 @@ namespace Assets.Scripts.Characters.Player
             currentObjectInHands.transform.localRotation = objectStats.localRot;
             currentObjectInHands.transform.localScale = objectStats.localScale;
 
+            currentObjectInHands.GetComponent<EchoMeshSpawner>().enabled = true;
+            currentObjectInHands.GetComponent<MeshRenderer>().enabled = false;
+
             var pos = go.transform.position;
             var rot = go.transform.rotation;
             currentObjectInHands.transform.position = pos;
@@ -67,7 +70,8 @@ namespace Assets.Scripts.Characters.Player
             
             go.transform.localPosition = new Vector3();
             go.transform.localRotation = new Quaternion();
-            go.transform.localScale = new Vector3(1, 1, 1);
+            go.transform.localScale = go.transform.localScale;
+            Debug.Log(go.transform.lossyScale);
             currentObjectInHands = go;
             holdingObject = true;
             go.GetComponent<Rigidbody>().isKinematic = true;
@@ -80,6 +84,8 @@ namespace Assets.Scripts.Characters.Player
             rigidBody.isKinematic = false;
             rigidBody.AddForce(Camera.main.gameObject.transform.forward * 500);
             holdingObject = false;
+            currentObjectInHands.GetComponent<EchoMeshSpawner>().enabled = true;
+            currentObjectInHands.GetComponent<MeshRenderer>().enabled = false;
             currentObjectInHands = null;
         }
     }

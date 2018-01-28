@@ -39,6 +39,10 @@ public class PickupItem : Interactable
     {
         Debug.Log("Interract with " + this.gameObject.name);
         var player = GameManager.Instance.Player;
+
+        GetComponent<EchoMeshSpawner>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = true;
+
         if (player.holdingObject)
         {
             PickupSound();
@@ -54,7 +58,6 @@ public class PickupItem : Interactable
     public override void Throw()
     {
         var player = GameManager.Instance.Player;
-
     }
 
     public void PickupSound()
