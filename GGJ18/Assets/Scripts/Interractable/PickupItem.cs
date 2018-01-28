@@ -39,6 +39,10 @@ public class PickupItem : Interactable
     {
         Debug.Log("Interract with " + this.gameObject.name);
         var player = GameManager.Instance.Player;
+
+        GetComponent<EchoMeshSpawner>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = true;
+
         if (player.holdingObject)
         {
             PickupSound();
@@ -54,7 +58,6 @@ public class PickupItem : Interactable
     public override void Throw()
     {
         var player = GameManager.Instance.Player;
-
     }
 
     public void PickupSound()
@@ -66,8 +69,12 @@ public class PickupItem : Interactable
 
     void OnCollisionEnter()
     {
+
         var audio = throwSoundList[Random.Range(0, throwSoundList.Count)];
-        ecoLocationAudioSource.intensity = pickupData.throwSoundIntensity;
+        if (ecoLocationAudioSource == null || audio == null)
+            return;
+
+            ecoLocationAudioSource.intensity = pickupData.throwSoundIntensity;
         ecoLocationAudioSource.PlaySound(audio, transform.position);
     }
 }
