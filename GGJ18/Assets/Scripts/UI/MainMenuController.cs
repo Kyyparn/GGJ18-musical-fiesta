@@ -10,6 +10,7 @@ namespace Assets.Scripts.UI
 
         public RectTransform MainMenuPanel;
         public RectTransform LevelSelectPanel;
+        public RectTransform HowToPlayPanel;
 
         List<RectTransform> panels;
 
@@ -19,6 +20,7 @@ namespace Assets.Scripts.UI
 
             panels.Add(MainMenuPanel);
             panels.Add(LevelSelectPanel);
+            panels.Add(HowToPlayPanel);
 
             DisableAllPanels();
 
@@ -27,6 +29,7 @@ namespace Assets.Scripts.UI
 
         private void DisableAllPanels()
         {
+            Debug.Log(panels.Count);
             panels.ForEach(p => p.gameObject.SetActive(false));
         }
 
@@ -40,6 +43,12 @@ namespace Assets.Scripts.UI
         {
             DisableAllPanels();
             MainMenuPanel.gameObject.SetActive(true);
+        }
+
+        public void GotoHowToPlayMenu()
+        {
+            DisableAllPanels();
+            HowToPlayPanel.gameObject.SetActive(true);
         }
 
         public void ExitGame()
