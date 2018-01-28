@@ -2354,6 +2354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 0
+  holdingObject: 0
+  pickupPosition: {fileID: 0}
   screamSounds: {fileID: 0}
   scream: {fileID: 0}
   screamCooldown: 2

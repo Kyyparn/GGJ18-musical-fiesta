@@ -49,46 +49,5 @@ namespace Assets.Scripts.Echoes
                 meshSpawner.CreateCopyOfMesh(transform.position,value*0.2f);
             }
         }
-        //void StartRadiusIncrease()
-        //{
-        //    StartCoroutine(LinearUpdate(0, goalLength, increaseTime, ScaleGo, StartRadiusDecrease));
-        //}
-
-        //void StartRadiusDecrease()
-        //{
-        //    StartCoroutine(LinearUpdate(goalLength, 0, decreaseTime, ScaleGo));
-        //}
-
-        //void ScaleGo(float value)
-        //{
-        //    go.transform.localScale = new Vector3(value, value, value);
-        //}
-
-        //IEnumerator LinearUpdate(float from, float to, float endTimeInSeconds, Action<float> func, Action onFinished = null)
-        //{
-        //    float diff = to - from;
-        //    float time = 0;
-
-        //    while (time < endTimeInSeconds)
-        //    {
-        //        time += Time.deltaTime;
-
-        //        if (time > endTimeInSeconds)
-        //        {
-        //            time = endTimeInSeconds;
-        //        }
-
-        //        float value = from + diff * (time / endTimeInSeconds);
-
-        //        func(value);
-
-        //        yield return new WaitForEndOfFrame();
-        //    }
-
-        //    if (onFinished != null)
-        //    {
-        //        onFinished();
-        //    }
-        //}
     }
 }
