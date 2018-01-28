@@ -82,5 +82,11 @@ namespace Assets.Scripts.Characters.Player
             holdingObject = false;
             currentObjectInHands = null;
         }
+
+        public void OpenLock()
+        {
+            pickupPosition.DetachChildren();
+            Destroy(currentObjectInHands);
+        }
     }
 }
