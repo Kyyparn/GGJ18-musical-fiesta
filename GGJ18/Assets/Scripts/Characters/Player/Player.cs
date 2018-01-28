@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using Assets.Scripts.Characters;
+﻿using UnityEngine;
 using Assets.Scripts.Managers;
 using System;
 using Assets.Scripts.Echoes;
@@ -23,8 +19,6 @@ namespace Assets.Scripts.Characters.Player
         public EcoLocationAudioSource scream;
         public float screamCooldown = 2.0f;
         private DateTime lastScream; 
-
-
 
         void Start()
         {
@@ -93,6 +87,8 @@ namespace Assets.Scripts.Characters.Player
         {
             pickupPosition.DetachChildren();
             Destroy(currentObjectInHands);
+            currentObjectInHands = null;
+            holdingObject = false;
         }
     }
 }

@@ -41,15 +41,16 @@ public class Lock : Interactable
     public void UnlockSound()
     {
         var audio = unlockedSounds[Random.Range(0, unlockedSounds.Count)];
-        ecoLocationAudioSource.intensity = lockSounds.pickUpSoundIntensity;
         ecoLocationAudioSource.PlaySound(audio, transform.position);
     }
 
     public void LockedSound()
     {
-        var audio = lockedSounds[Random.Range(0, lockedSounds.Count)];
-        ecoLocationAudioSource.intensity = lockSounds.pickUpSoundIntensity;
-        ecoLocationAudioSource.PlaySound(audio, transform.position);
+        if(! GetComponent<AudioSource>().isPlaying)
+        {
+            var audio = lockedSounds[Random.Range(0, lockedSounds.Count)];
+            ecoLocationAudioSource.PlaySound(audio, transform.position);
+        }
     }
 
 }
