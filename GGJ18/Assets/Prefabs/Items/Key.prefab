@@ -21,13 +21,14 @@ GameObject:
   - component: {fileID: 4957490826102300}
   - component: {fileID: 33295506005919746}
   - component: {fileID: 23327361512326498}
-  - component: {fileID: 136621468419444546}
   - component: {fileID: 54686384354078042}
   - component: {fileID: 65374687162619458}
   - component: {fileID: 114955915890292824}
   - component: {fileID: 82709173156448192}
   - component: {fileID: 114576546735399154}
   - component: {fileID: 114642537403622196}
+  - component: {fileID: 65880100915620056}
+  - component: {fileID: 114313599556774010}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -42,8 +43,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202650719517298}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.6, y: 1.193, z: 3.66}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalPosition: {x: -14.043152, y: 1.527, z: -15.522}
+  m_LocalScale: {x: 0.0472601, y: 0.0472601, z: 0.0472601}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,7 +55,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202650719517298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -89,7 +90,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1202650719517298}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 0749084a2bf49fe4683943e60e283bca, type: 3}
 --- !u!54 &54686384354078042
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -115,8 +116,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.9612374, y: 3.421277, z: 4.9488072}
-  m_Center: {x: -0.010115951, y: 0.5503936, z: 0.8077416}
+  m_Size: {x: 12.258841, y: 3.421277, z: 8.844811}
+  m_Center: {x: 0.14720021, y: 0.5503935, z: 0.116956845}
+--- !u!65 &65880100915620056
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202650719517298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.684826, y: 0.586725, z: 3.534332}
+  m_Center: {x: -0.04461503, y: 0.2871865, z: 0}
 --- !u!82 &82709173156448192
 AudioSource:
   m_ObjectHideFlags: 1
@@ -127,7 +140,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -137,9 +150,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -148,7 +161,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.50029755
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -172,7 +185,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -212,6 +225,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114313599556774010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1202650719517298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbcbc151a4cba34790ecadee92153cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshSpawnerPrefab: {fileID: 1773562866122700, guid: 7ceabd7b24a63ed46ba743070c35d691,
+    type: 2}
 --- !u!114 &114576546735399154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,16 +302,3 @@ MonoBehaviour:
   localRot: {x: 0, y: 0, z: 0, w: 0}
   localScale: {x: 0, y: 0, z: 0}
   pickupData: {fileID: 11400000, guid: b1b667cd070e79f44993cf80a2469512, type: 2}
---- !u!136 &136621468419444546
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1202650719517298}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}

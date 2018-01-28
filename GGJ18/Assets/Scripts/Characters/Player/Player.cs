@@ -55,6 +55,7 @@ namespace Assets.Scripts.Characters.Player
             currentObjectInHands.transform.position = pos;
             currentObjectInHands.transform.rotation = rot;
             currentObjectInHands.GetComponent<Rigidbody>().isKinematic = true;
+            SetCollidersEnabled(currentObjectInHands, true);
             PickupObject(go);
         }
 
@@ -65,9 +66,9 @@ namespace Assets.Scripts.Characters.Player
             go.transform.localPosition = new Vector3();
             go.transform.localRotation = new Quaternion();
             go.transform.localScale = go.transform.localScale;
-            Debug.Log(go.transform.lossyScale);
             currentObjectInHands = go;
             holdingObject = true;
+            SetCollidersEnabled(go, false);
             go.GetComponent<Rigidbody>().isKinematic = true;
         }
 
@@ -78,9 +79,19 @@ namespace Assets.Scripts.Characters.Player
             rigidBody.isKinematic = false;
             rigidBody.AddForce(Camera.main.gameObject.transform.forward * 500);
             holdingObject = false;
+            SetCollidersEnabled(currentObjectInHands, true);
             currentObjectInHands.GetComponent<EchoMeshSpawner>().enabled = true;
             currentObjectInHands.GetComponent<MeshRenderer>().enabled = false;
             currentObjectInHands = null;
+        }
+
+        public void SetCollidersEnabled(GameObject gameObject, bool value)
+        {
+            var colliders = gameObject.GetComponents<BoxCollider>();
+            foreach (var collider in colliders)
+            {
+                collider.enabled = value;
+            }
         }
 
         public void OpenLock()

@@ -15,6 +15,10 @@ namespace Assets.Scripts.Echoes
         [ContextMenu("Play Sound")]
         public void PlaySound(AudioClip audio, Vector3 sourcePosition)
         {
+            if(GameManager.Instance.Player == null)
+            {
+                return;
+            }
             var distanceToPlayer = Vector3.Distance(GameManager.Instance.Player.transform.position, sourcePosition);
             var intensityWithFalloff = intensityFalloff.Evaluate((intensity - (distanceToPlayer * 2)) / intensity) * intensity;
 

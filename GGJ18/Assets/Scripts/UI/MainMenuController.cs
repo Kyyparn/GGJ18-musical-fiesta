@@ -29,7 +29,6 @@ namespace Assets.Scripts.UI
 
         private void DisableAllPanels()
         {
-            Debug.Log(panels.Count);
             panels.ForEach(p => p.gameObject.SetActive(false));
         }
 
