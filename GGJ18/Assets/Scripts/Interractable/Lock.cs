@@ -29,7 +29,7 @@ public class Lock : Interactable
         {
             UnlockSound();
             player.OpenLock();
-            Elevator.OpenDoors();
+            //Elevator.OpenDoors();
             Destroy(this.gameObject,0.25f);
         }
         else
