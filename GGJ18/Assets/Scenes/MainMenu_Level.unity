@@ -2541,6 +2541,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 0
+  screamSounds: {fileID: 0}
+  scream: {fileID: 0}
+  screamCooldown: 2
 --- !u!1 &893352872
 GameObject:
   m_ObjectHideFlags: 0
