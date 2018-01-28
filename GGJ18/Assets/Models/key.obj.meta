@@ -1,22 +1,16 @@
 fileFormatVersion: 2
-guid: 24ce968ede5d0d94eac9792183c9f859
+guid: c52cddee821545f4593903fdf3fb2ace
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: Radio
-    100002: //RootNode
-    100004: radio_Radio
-    400000: Radio
-    400002: //RootNode
-    400004: radio_Radio
-    2100000: RadioMat
-    2100002: radio_RadioMat
-    2300000: Radio
-    2300002: radio_Radio
-    3300000: Radio
-    3300002: radio_Radio
-    4300000: Radio
-    4300002: radio_Radio
+    100000: //RootNode
+    100002: pCylinder8
+    400000: //RootNode
+    400002: pCylinder8
+    2100000: pCylinder8Mat
+    2300000: pCylinder8
+    3300000: pCylinder8
+    4300000: pCylinder8
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -48,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.15
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
