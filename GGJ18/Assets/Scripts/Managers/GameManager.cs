@@ -4,7 +4,6 @@ using UnityEngine;
 
 using Assets.Scripts.Characters.Player;
 using Assets.Scripts.Characters.NPC;
-using UnityStandardAssets.Characters.FirstPerson;
 
 namespace Assets.Scripts.Managers
 {
