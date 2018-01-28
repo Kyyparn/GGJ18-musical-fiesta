@@ -8,5 +8,7 @@ public class PickupContainer : ScriptableObject
     public float throwSoundIntensity;
     public List<AudioClip> PickupSound;
     public float pickUpSoundIntensity;
+
+    public bool isObjective = false;
 }
 
