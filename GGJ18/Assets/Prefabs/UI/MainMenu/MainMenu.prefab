@@ -1027,15 +1027,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Use WASD to move around.
+  m_Text: 'Navigate dark areas using the sounds around you.
 
-    Your only vision is by sound.
 
-    Scream with your left mouse button.
+    Movement: WASD
 
-    Press a button to pick objects up. You can throw them by pressing a button.
+    Interact/Pickup: E
 
-    The monster is a monster, he is evil. Stay away from him.'
+    Scream: Left Mouse Button
+
+    Throw: Right Mouse Button
+
+
+    The monster is attracted to sound. Try not to disturb it!'
 --- !u!114 &114911494500997798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1279,7 +1283,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 26.00002, y: 102}
-  m_SizeDelta: {x: 500, y: 500}
+  m_SizeDelta: {x: 700, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224082777420635106
 RectTransform:
