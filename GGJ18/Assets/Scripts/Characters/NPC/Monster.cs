@@ -174,7 +174,7 @@ namespace Assets.Scripts.Characters.NPC
                 var distance = (transform.position - player.transform.position).magnitude;
                 if (distance <= aggroDistance)
                 {
-                    if (distance < 0.5f)
+                    if (distance < 0.95f)
                     {
                         GameManager.Instance.KillPlayer();
                     }
