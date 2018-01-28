@@ -88,5 +88,11 @@ namespace Assets.Scripts.Characters.Player
             currentObjectInHands.GetComponent<MeshRenderer>().enabled = false;
             currentObjectInHands = null;
         }
+
+        public void OpenLock()
+        {
+            pickupPosition.DetachChildren();
+            Destroy(currentObjectInHands);
+        }
     }
 }
